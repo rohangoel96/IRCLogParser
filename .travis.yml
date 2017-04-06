@@ -22,4 +22,4 @@ install:
 
 script:
   - cd test && python -m unittest -v tests
-  - cd .. &&  bash ext/doc_auto_deploy.sh
+  - cd .. &&  bash IRCLogParser/ext/doc_auto_deploy.sh
