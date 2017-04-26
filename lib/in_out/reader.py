@@ -33,10 +33,10 @@ def linux_input(log_directory, channel_list, starting_date, ending_date):
     for year_iterator in range(starting_year, ending_year + 1):  
         #enter month folders
         for month_iterator in range(starting_month if year_iterator == starting_year else 1, ending_month + 1 if year_iterator == ending_year else 13):
-            extra0 = "0" if month_iterator < 10 else ""        
+            extra0 = ""        
             #enter day folder
             for day_iterator in range(starting_day if (month_iterator == starting_month and year_iterator == starting_year) else 1, ending_day + 1 if (month_iterator == ending_month and year_iterator==ending_year) else 32):
-                extra0_2 = "0" if day_iterator < 10 else ""
+                extra0_2 = ""
                 work_path = log_directory+str(year_iterator)+"/"+extra0 + \
                     str(month_iterator) + "/" + extra0_2 + \
                     str(day_iterator) + "/"
@@ -60,18 +60,20 @@ def linux_input(log_directory, channel_list, starting_date, ending_date):
                                 day_data = f.readlines()             
                             
                             f.close()
-
-                            date_key = date(year_iterator, month_iterator, day_iterator)
-                            value = {
-                                "log_data": day_data, 
-                                "auxiliary_data": {
-                                        "channel": channel_name,
-                                        "year": year_iterator,
-                                        "month": month_iterator,
-                                        "day": day_iterator
+                            try:
+                                date_key = date(year_iterator, month_iterator, day_iterator)
+                                value = {
+                                    "log_data": day_data, 
+                                    "auxiliary_data": {
+                                            "channel": channel_name,
+                                            "year": year_iterator,
+                                            "month": month_iterator,
+                                            "day": day_iterator
+                                        }
                                     }
-                                }
-        
-                            logs[date_key].append(value)
+            
+                                logs[date_key].append(value)
+                            except:
+                                print "INVALID", year_iterator, month_iterator, day_iterator
                     
     return collections.OrderedDict(sorted(logs.items()))

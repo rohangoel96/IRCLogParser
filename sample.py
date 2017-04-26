@@ -9,11 +9,11 @@ ending_date = config.ENDING_DATE
 output_directory = config.OUTPUT_DIRECTORY
 
 # ============== INPUT==================
-# log_data = reader.linux_input(log_directory, channel_name, starting_date, ending_date)
-# nicks, nick_same_list = nickTracker.nick_tracker(log_data)
+log_data = reader.linux_input(log_directory, channel_name, starting_date, ending_date)
+nicks, nick_same_list = nickTracker.nick_tracker(log_data)
 
 # ============== ANALYSIS =============
-# message_number_graph = network.message_number_graph(log_data, nicks, nick_same_list, False)
+message_number_graph = network.message_number_graph(log_data, nicks, nick_same_list, False)
 # message_number_graph_day_list = network.message_number_graph(log_data, nicks, nick_same_list, True)
 # degree_anal_message_numder = network.degree_analysis_on_graph(message_number_graph)
 # message_time_graph_list = network.message_time_graph(log_data, nicks, nick_same_list, True)
@@ -44,7 +44,7 @@ output_directory = config.OUTPUT_DIRECTORY
 # for i in range(len(nick_change_graph_list)):
     # saver.draw_nx_graph(nick_change_graph_list[i], output_directory, "ncg" + str(i+1))
 
-# saver.draw_nx_graph(message_number_graph, output_directory, "mnagg")    
+saver.draw_nx_graph(message_number_graph, output_directory, "mnagg")    
 # saver.draw_nx_graph(message_time_graph, output_directory, "mtgagg")
 # saver.save_csv(conv_len, output_directory, "conv_len")
 # saver.save_csv(resp_time, output_directory, "resp_time")

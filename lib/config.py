@@ -1,13 +1,13 @@
-DEBUGGER = True
-LOG_DIRECTORY = "/home/rohan/parser_files/YearlyLogFiles/"
+DEBUGGER = False
+LOG_DIRECTORY = "/home/rohan/parser_files/ScummVM/"
 OUTPUT_DIRECTORY = "/home/rohan/Desktop/"
-STARTING_DATE = "2013-1-1"
-ENDING_DATE = "2013-1-31"
+STARTING_DATE = "2016-1-1"
+ENDING_DATE = "2016-1-1"
 MINIMUM_NICK_LENGTH = 3
 
 
 # change to ["ALL"] if want to perform analysis over all channels
-CHANNEL_NAME = ["#kubuntu-devel"]
+CHANNEL_NAME = ["#scummvm"]
 # CHANNEL_NAME = ["ALL"]
 
 # increase if using channel_user_presence
@@ -15,7 +15,7 @@ MAX_EXPECTED_DIFF_NICKS = 5000
 # MAX_EXPECTED_DIFF_NICKS = 100000
 
 # message_number_graph
-THRESHOLD_MESSAGE_NUMBER_GRAPH = 0
+THRESHOLD_MESSAGE_NUMBER_GRAPH = 5
 HOW_MANY_TOP_EXPERTS = 10
 
 #number of entries in log plot
